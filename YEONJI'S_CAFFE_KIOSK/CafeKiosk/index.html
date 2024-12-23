@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YEONJI'S CAFFE KIOSK</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">YEONJI'S CAFFE</div>
+        <div class="admin-button">
+            <button id="admin-btn">+</button>
+        </div>
+    </header>
+
+    <!-- Tab Menu -->
+    <nav class="tab-menu">
+        <button class="tab-btn active" data-category="all">전체</button>
+        <button class="tab-btn" data-category="coffee">커피</button>
+        <button class="tab-btn" data-category="dessert">디저트</button>
+        <button class="tab-btn" data-category="drink">음료</button>
+    </nav>
+
+    <!-- Menu Section -->
+    <main class="menu-container" ondragover="event.preventDefault()">
+        <div class="menu-grid">
+            <!-- Menu Items -->
+            <div class="menu-item" data-category="coffee" data-name="에소프레소" data-price="1800" draggable="true">
+                <img src="./image/espresso.png" alt="에소프레소" />
+                <p class="item-name">에소프레소</p>
+                <p class="item-price">1800원</p>
+            </div>
+            <div class="menu-item" data-category="coffee" data-name="아메리카노" data-price="2000" draggable="true">
+                <img src="./image/americano.png" alt="아메리카노" />
+                <p class="item-name">아메리카노</p>
+                <p class="item-price">2000원</p>
+            </div>
+            <div class="menu-item" data-category="coffee" data-name="카페라떼" data-price="2900" draggable="true">
+                <img src="./image/latte.png" alt="카페라떼" />
+                <p class="item-name">카페라떼</p>
+                <p class="item-price">2900원</p>
+            </div>
+            <div class="menu-item" data-category="coffee" data-name="바닐라라떼" data-price="3300">
+                <img src="./image/VanillaLatte.png" alt="바닐라라떼" />
+                <p class="item-name">바닐라라떼</p>
+                <p class="item-price">3300원</p>
+            </div>
+            <div class="menu-item" data-category="coffee" data-name="카라멜마끼아또" data-price="3400">
+                <img src="./image/CaramelMacchiato.png" alt="카라멜마끼아또" />
+                <p class="item-name">카라멜마끼아또</p>
+                <p class="item-price">3400원</p>
+            </div>
+            <div class="menu-item" data-category="drink" data-name="밀크쉐이크" data-price="3500">
+                <img src="./image/milkshake.png" alt="밀크쉐이크" />
+                <p class="item-name">밀크쉐이크</p>
+                <p class="item-price">3500원</p>
+            </div>
+            <div class="menu-item" data-category="drink" data-name="딸기쉐이크" data-price="3500">
+                <img src="./image/StrawberryShake.png" alt="딸기쉐이크" />
+                <p class="item-name">딸기쉐이크</p>
+                <p class="item-price">3500원</p>
+            </div>
+            <div class="menu-item" data-category="drink" data-name="레몬에이드" data-price="3500">
+                <img src="./image/Lemonade.png" alt="레몬에이드" />
+                <p class="item-name">레몬에이드</p>
+                <p class="item-price">3500원</p>
+            </div>
+            <div class="menu-item" data-category="dessert" data-name="치즈케이크" data-price="5000">
+                <img src="./image/StrawberryCake.png" alt="치즈케이크" />
+                <p class="item-name">치즈케이크</p>
+                <p class="item-price">5000원</p>
+            </div>
+            <div class="menu-item" data-category="dessert" data-name="마카롱" data-price="2500">
+                <img src="./image/macaroon.png" alt="마카롱" />
+                <p class="item-name">마카롱</p>
+                <p class="item-price">2500원</p>
+            </div>
+            <div class="menu-item" data-category="dessert" data-name="쿠키" data-price="1300">
+                <img src="./image/cookie.png" alt="쿠키" />
+                <p class="item-name">쿠키</p>
+                <p class="item-price">1300원</p>
+            </div>
+            <div class="menu-item" data-category="dessert" data-name="크로와상" data-price="2500">
+                <img src="./image/croissant.png" alt="크로와상" />
+                <p class="item-name">크로와상</p>
+                <p class="item-price">2500원</p>
+            </div>
+            <div class="menu-item" data-category="dessert" data-name="와플" data-price="3300">
+                <img src="./image/waffle.png" alt="와플" />
+                <p class="item-name">와플</p>
+                <p class="item-price">3300원</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Section -->
+    <aside class="cart-area">
+        <div class="cart-items">
+            <!-- Cart items will dynamically appear here -->
+        </div>
+        <div class="cart-summary">
+            <button id="clear-cart">전체삭제</button>
+            <button id="checkout-btn">결제하기</button>
+            <p>총액: <span id="total-price">0</span>원</p>
+        </div>
+    </aside>
+
+    <!-- Payment Modals -->
+    <div id="payment-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>결제 방식을 선택하세요</h2>
+            <div class="payment-options">
+                <div id="card-payment" class="payment-option">
+                    <img src="./image/card.png" alt="카드결제" />
+                    <p>카드결제</p>
+                </div>
+                <div id="simple-payment" class="payment-option">
+                    <img src="./image/simple.png" alt="간편결제" />
+                    <p>간편결제</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="card-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>카드를 삽입하세요</h2>
+            <button id="card-confirm">확인</button>
+        </div>
+    </div>
+
+    <div id="simple-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>바코드를 인식하세요</h2>
+            <button id="simple-confirm">확인</button>
+        </div>
+    </div>
+
+    <div id="receipt-modal" class="modal hidden">
+        <div class="modal-content">
+            <div id="receipt-content"></div>
+            <button id="receipt-close">닫기</button>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>관리자 기능</h2>
+            <!-- 메뉴 추가 -->
+            <div>
+                <label for="new-menu-name">메뉴 이름:</label>
+                <input type="text" id="new-menu-name" />
+                <label for="new-menu-price">가격:</label>
+                <input type="number" id="new-menu-price" />
+                <label for="new-menu-category">카테고리:</label>
+                <input type="text" id="new-menu-category" />
+                <label for="new-menu-image">이미지:</label>
+                <input type="file" id="new-menu-image" accept="image/*" />
+                <button id="add-menu">메뉴 추가</button>
+            </div>
+            <!-- 판매 내역 -->
+            <div>
+                <h3>판매 내역</h3>
+                <ul id="sales-list">
+                    <!-- 결제된 메뉴와 가격이 여기 추가됩니다 -->
+                </ul>
+                <p>총 판매 금액: <span id="total-sales">0</span>원</p>
+                <button id="clear-sales">판매 내역 초기화</button>
+            </div>
+            <button id="close-admin-modal">닫기</button>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

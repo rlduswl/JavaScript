@@ -1,0 +1,246 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* 화면 전체 높이 설정 */
+    overflow: hidden;
+    /* 전체 화면에서 스크롤바 숨김 */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 50px);
+    /* 상단 제목(h1) 제외한 높이 */
+    overflow-y: auto;
+    /* 컨테이너 스크롤 */
+}
+
+.center-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.category-area {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ccc;
+}
+
+.category-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #ddd;
+}
+
+.category-btn:hover {
+    background-color: #aaa;
+}
+
+.menu-area {
+    display: flex;
+    flex-wrap: wrap;
+    /* 줄 바꿈 활성화 */
+    gap: 20px;
+    /* 메뉴 간격 */
+    justify-content: center;
+    /* 중앙 정렬 */
+    width: 100%;
+    /* 컨테이너 전체 너비 */
+    max-height: calc(100vh - 200px);
+    /* 화면 높이에 여유 공간 설정 */
+    overflow-y: auto;
+    /* 세로 스크롤 활성화 */
+    padding: 10px;
+    box-sizing: border-box;
+    /* 패딩 포함 크기 계산 */
+}
+
+.menu-item {
+    flex: 1 0 calc(20% - 20px);
+    /* 한 줄에 5개 */
+    max-width: calc(20% - 20px);
+    /* 최대 너비 설정 */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    cursor: grab;
+}
+
+.menu-item img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.cart-area {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    /* 스크롤 활성화 */
+}
+
+.cart-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* 줄 바꿈 가능 */
+    gap: 20px;
+    /* 항목 간격 */
+    justify-content: center;
+    /* 중앙 정렬 */
+    width: 100%;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+.cart-item {
+    width: 150px;
+    /* 항목의 가로 크기 */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    cursor: grab;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-item-img {
+    width: 40px;
+    /* 이미지 너비 */
+    height: 40px;
+    /* 이미지 높이 */
+    border-radius: 8px;
+    object-fit: cover;
+    /* 이미지 비율 유지 */
+}
+
+.cart-item button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    /* 버튼 텍스트 크기 */
+    background-color: #ff6666;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.cart-item select {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.cart-item-details {
+    font-size: 12px;
+    /* 텍스트 크기 줄임 */
+    margin-top: 10px;
+}
+
+.cart-item-controls,
+.cart-item-select {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.cart-item-controls label,
+.cart-item-select label {
+    font-size: 12px;
+    /* 레이블 텍스트 크기 */
+}
+
+.cart-quantity {
+    width: 50px;
+}
+
+.cart-coffee-type {
+    padding: 5px;
+}
+
+.cart-item-details {
+    margin-top: 10px;
+}
+
+.cart-item-controls input,
+.cart-item-select select {
+    font-size: 12px;
+    /* 입력 필드와 선택 필드 크기 */
+    width: 50px;
+    /* 입력 필드 크기 */
+    padding: 5px;
+    /* 필드 내부 여백 */
+}
+
+#admin-btn {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.payment-options {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.payment-option img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.menu-item.in-cart {
+    display: none;
+}
